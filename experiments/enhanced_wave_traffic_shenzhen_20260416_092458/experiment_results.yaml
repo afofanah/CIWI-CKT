@@ -1,0 +1,32 @@
+experiment_info:
+  device: auto
+  name: enhanced_wave_traffic
+  seed: 42
+  target_days: 3
+  test_dataset: shenzhen
+  timestamp: '2026-04-17 14:39:23'
+model_config:
+  chaos_dim: 32
+  frequency_bands: 16
+  hidden_dim: 64
+  meta_dim: 16
+  total_parameters: 994464
+  wave_components: 12
+performance_summary:
+  avg_mae_6_steps: 2.576814333597819
+  avg_mape_6_steps: 8.203748303155106
+  avg_rmse_6_steps: 2.5768143616903427
+  best_mae: 0.19840049743652344
+  best_mape: 0.7681991904973984
+  best_rmse: 0.19840049999447085
+training_config:
+  adaptation_steps: 3
+  inner_lr: 0.01
+  learning_rate: 0.0001
+  meta_epochs: 100
+  meta_lr: 0.0005
+  minibatch_size: 4096
+  query_size: 10
+  source_epochs: 200
+  support_size: 5
+  target_epochs: 300

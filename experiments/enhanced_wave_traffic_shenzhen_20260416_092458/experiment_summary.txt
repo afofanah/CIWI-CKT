@@ -1,0 +1,33 @@
+======================================================================
+CIWI-CKT EXPERIMENT SUMMARY
+======================================================================
+
+Experiment  : enhanced_wave_traffic
+Dataset     : shenzhen
+Target Days : 3
+Timestamp   : 2026-04-17 14:39:28
+
+MODEL
+----------------------------------------
+Hidden Dim      : 64
+Wave Components : 12
+Frequency Bands : 16
+Chaos Dim       : 32
+Meta Dim        : 16
+Parameters      : 994,464
+
+TRAINING
+----------------------------------------
+Meta Episodes   : 100
+Source Epochs   : 200
+Target Epochs   : 300
+Learning Rate   : 0.0001
+Meta LR         : 0.0005
+Inner LR        : 0.01
+Minibatch Size  : 4096
+
+PERFORMANCE (avg first 6 steps)
+----------------------------------------
+MAE  : 2.5768
+RMSE : 2.5768
+MAPE : 8.20%

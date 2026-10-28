@@ -1,0 +1,48 @@
+================================================================================
+CHAOTIC-WAVE TRAFFIC FLOW PREDICTION - EXPERIMENT SUMMARY
+================================================================================
+
+Experiment: enhanced_wave_traffic
+Dataset: pems-bay
+Target Days: 3
+Timestamp: 2026-04-16 03:36:00
+
+MODEL CONFIGURATION:
+----------------------------------------
+Hidden Dimension: 64
+Wave Components: 12
+Frequency Bands: 16
+Chaos Dimension: 32
+Meta Dimension: 16
+Total Parameters: 994,464
+
+TRAINING CONFIGURATION:
+----------------------------------------
+Meta Episodes: 100
+Source Epochs: 200
+Target Epochs: 300
+Learning Rate: 0.0001
+Meta Learning Rate: 0.0005
+Inner Learning Rate: 0.01
+Mini-batch Size: 4096
+
+PERFORMANCE RESULTS:
+----------------------------------------
+Average MAE (6 steps):  3.0344
+Average RMSE (6 steps): 3.5592
+Average MAPE (6 steps): 4.74%
+Average R² (6 steps):   -2.4891
+
+Best MAE:  0.7262
+Best RMSE: 0.9096
+Best MAPE: 1.11%
+Best R²:   0.9384
+
+FILES GENERATED:
+----------------------------------------
+Config: config.yaml, args.yaml
+Models: best_model.pth, finetuned_model.pth
+Results: experiment_results.yaml
+Predictions: predictions/
+Plots: plots/
+Logs: Available in experiment directory

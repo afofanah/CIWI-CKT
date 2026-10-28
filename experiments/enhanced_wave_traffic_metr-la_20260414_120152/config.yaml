@@ -1,0 +1,212 @@
+advanced_settings:
+  attention_settings:
+    cross_modal_attention: true
+    frequency_decomposition: true
+    multi_scale_layers: 3
+    temporal_fusion: true
+  checkpointing:
+    auto_resume: true
+    checkpoint_metrics:
+    - loss
+    - mae
+    - rmse
+    keep_best_only: false
+    save_frequency: 25
+  data_augmentation:
+    augmentation_probability: 0.3
+    gaussian_noise_std: 0.01
+    scaling_range:
+    - 0.95
+    - 1.05
+    temporal_shift_range: 3
+  meta_learning_settings:
+    context_encoding: true
+    maml_style: true
+    prototype_generation: true
+    support_query_split: 0.4
+    task_adaptation: true
+  visualization:
+    comprehensive_analysis: true
+    error_analysis_panels: 6
+    plot_frequency: 50
+    save_plots: true
+  wave_settings:
+    chaos_encoding: true
+    dynamic_frequencies: true
+    meta_adaptation: true
+    phase_shifts:
+    - 0
+    - 0.785398
+    - 1.570796
+    resonance_threshold: 0.5
+data:
+  chengdu_m:
+    adjacency_matrix_path: data/chengdu_m/matrix.npy
+    dataset_path: data/chengdu_m/dataset.npy
+    enable_spatiotemporal_learning: true
+    node_num: 524
+    speed_mean: 29.0982979559
+    speed_std: 9.75304346669
+    time_step: 17280
+  data_keys:
+  - metr-la
+  - pems-bay
+  - shenzhen
+  - chengdu_m
+  metr-la:
+    adjacency_matrix_path: data/metr-la/matrix.npy
+    dataset_path: data/metr-la/dataset.npy
+    enable_spatiotemporal_learning: true
+    node_num: 207
+    speed_mean: 58.465786
+    speed_std: 12.905341
+    time_step: 34272
+  pems-bay:
+    adjacency_matrix_path: data/pems-bay/matrix.npy
+    dataset_path: data/pems-bay/dataset.npy
+    enable_spatiotemporal_learning: true
+    node_num: 325
+    speed_mean: 62.621582859
+    speed_std: 9.58811369696
+    time_step: 52116
+  shenzhen:
+    adjacency_matrix_path: data/shenzhen/matrix.npy
+    dataset_path: data/shenzhen/dataset.npy
+    enable_spatiotemporal_learning: true
+    node_num: 627
+    speed_mean: 30.5735608506
+    speed_std: 11.0922606598
+    time_step: 17280
+evaluation:
+  horizons:
+    default:
+      step1: 1
+      step12: 12
+      step3: 3
+      step6: 6
+    metr-la:
+      120min: 24
+      15min: 3
+      30min: 6
+      5min: 1
+      60min: 12
+      90min: 18
+    pems-bay:
+      120min: 24
+      15min: 3
+      30min: 6
+      5min: 1
+      60min: 12
+      90min: 18
+  metrics:
+  - MAE
+  - RMSE
+  - MAPE
+  - R2
+  plot_nodes:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  plot_time_steps:
+  - 0
+  - 3
+  - 6
+  - 9
+  - 11
+experiment:
+  device: auto
+  log_dir: logs
+  name: physics_traffic_prediction_improved
+  plot_dir: plots
+  save_dir: experiments
+  seed: 42
+few_shot:
+  adaptation_steps: 3
+  enabled: true
+  gradient_clip_inner: 0.5
+  gradient_clip_outer: 0.5
+  inner_lr: 0.01
+  meta_epochs: 100
+  num_tasks: 2
+  outer_lr: 5.0e-05
+  query_size: 10
+  support_size: 5
+hardware:
+  cuda_benchmark: false
+  cuda_deterministic: true
+  distributed: false
+  multi_gpu: false
+logging:
+  checkpoint_frequency: 10
+  level: INFO
+  plot_physics_features: false
+  plot_predictions: true
+  plot_training_curves: true
+  save_metrics: true
+  save_model_checkpoints: true
+model:
+  chaos_dim: 32
+  consistency_weight: 0.05
+  dropout: 0.1
+  frequency_bands: 16
+  harmony_weight: 0.1
+  hidden_dim: 64
+  interference_weight: 0.05
+  kernel_sizes:
+  - 3
+  - 5
+  - 7
+  - 9
+  meta_dim: 16
+  meta_lr: 0.0005
+  meta_weight: 0.1
+  name: ChaosAwareTrafficPredictor
+  noise_std: 0.005
+  num_heads: 8
+  output_dim: 1
+  predictability_weight: 0.02
+  prediction_weight: 1.0
+  smoothness_weight: 0.02
+  type: chaos_aware
+  wave_components: 12
+optimization:
+  compile_model: false
+  gradient_accumulation_steps: 1
+  memory_efficient: true
+  mixed_precision: false
+  num_workers: 4
+  pin_memory: true
+task:
+  batch_size: 1
+  his_num: 12
+  pred_num: 12
+  test_batch_size: 1
+training:
+  add_physics_features: true
+  batch_size: 1
+  early_stopping:
+    min_delta: 1e-5
+    patience: 15
+    restore_best_weights: true
+  epochs: 500
+  gradient_clip: 0.5
+  learning_rate: 0.0001
+  minibatch_size: 4096
+  scheduler:
+    factor: 0.7
+    min_lr: 1e-6
+    patience: 8
+    type: plateau
+  source_epochs: 200
+  source_lr: 5.0e-05
+  target_days: 3
+  target_epochs: 300
+  target_lr: 5.0e-05
+  test_batch_size: 1
+  test_dataset: metr-la
+  weight_decay: 1e-4
+validation:
+  shuffle: false
+  split_ratio: 0.8
